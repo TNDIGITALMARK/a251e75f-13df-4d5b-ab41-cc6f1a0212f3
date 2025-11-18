@@ -70,6 +70,7 @@ export interface AssessmentFormData {
   // Step 3: Availability
   timezonePreference: TimezonePreference;
   firmTimezone: FirmTimezone;
+  taskRequirements?: string[]; // Tasks needed for the job
 
   // Step 4: Personality & Matching
   personalityTraits: PersonalityTrait[];

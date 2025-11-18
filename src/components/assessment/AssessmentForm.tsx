@@ -11,6 +11,7 @@ import { BasicInfoStep } from './steps/BasicInfoStep';
 import { SupportNeedsStep } from './steps/SupportNeedsStep';
 import { AvailabilityStep } from './steps/AvailabilityStep';
 import { MatchingPreferencesStep } from './steps/MatchingPreferencesStep';
+import { TaskRequirementsModal } from './TaskRequirementsModal';
 
 const STEPS = [
   {
@@ -46,6 +47,7 @@ const initialFormData: AssessmentFormData = {
   softwareProficiency: [],
   timezonePreference: 'flexible',
   firmTimezone: 'ET',
+  taskRequirements: [],
   personalityTraits: [],
   matchingPriorities: {
     personality: 1,
@@ -64,6 +66,7 @@ export function AssessmentForm({ onComplete }: AssessmentFormProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<AssessmentFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showTaskModal, setShowTaskModal] = useState(false);
 
   const progress = (currentStep / STEPS.length) * 100;
   const currentStepInfo = STEPS[currentStep - 1];
@@ -73,11 +76,19 @@ export function AssessmentForm({ onComplete }: AssessmentFormProps) {
   };
 
   const handleNext = () => {
-    if (currentStep < STEPS.length) {
+    // Show task modal after availability step (step 3)
+    if (currentStep === 3) {
+      setShowTaskModal(true);
+    } else if (currentStep < STEPS.length) {
       setCurrentStep((prev) => prev + 1);
     } else {
       handleSubmit();
     }
+  };
+
+  const handleTasksComplete = (tasks: string[]) => {
+    updateFormData({ taskRequirements: tasks });
+    setCurrentStep((prev) => prev + 1);
   };
 
   const handleBack = () => {
@@ -241,6 +252,13 @@ export function AssessmentForm({ onComplete }: AssessmentFormProps) {
           </CardContent>
         </Card>
       </div>
+
+      {/* Task Requirements Modal */}
+      <TaskRequirementsModal
+        open={showTaskModal}
+        onOpenChange={setShowTaskModal}
+        onComplete={handleTasksComplete}
+      />
     </div>
   );
 }
