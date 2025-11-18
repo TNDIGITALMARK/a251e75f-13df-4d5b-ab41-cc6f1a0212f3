@@ -50,7 +50,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background py-12 px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background py-12 px-4 gap-8">
       <Card className="w-full max-w-md border-border shadow-sm">
         <CardHeader className="space-y-2">
           <CardTitle className="text-3xl font-semibold text-center tracking-tight">
@@ -173,6 +173,15 @@ export default function LoginPage() {
           </p>
         </CardFooter>
       </Card>
+
+      {/* Powered by Stafi Logo */}
+      <div className="flex justify-center">
+        <img
+          src="/logo-powered-by-stafi.png"
+          alt="Powered by Stafi"
+          className="h-12 w-auto opacity-80"
+        />
+      </div>
     </div>
   );
 }

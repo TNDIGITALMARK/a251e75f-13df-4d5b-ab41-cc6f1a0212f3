@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'LawWork - Legal Talent Matching Platform',
@@ -10,5 +11,10 @@ export default function LawWorkLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-1">{children}</div>
+      <Footer />
+    </div>
+  );
 }
