@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Scale, Building2, Users, Briefcase, Tool } from 'lucide-react';
+import { Scale, Building2, Users, Briefcase, Wrench } from 'lucide-react';
 import { PRACTICE_AREAS, LEGAL_TOOLS } from '@/lib/lawwork/mock-data';
 
 export default function FirmSetupPage() {
@@ -172,7 +172,7 @@ export default function FirmSetupPage() {
           {/* Tools Used */}
           <div className="lawwork-card mb-6">
             <div className="flex items-center gap-2 mb-4">
-              <Tool className="h-5 w-5 text-primary" />
+              <Wrench className="h-5 w-5 text-primary" />
               <h2 className="text-lg font-semibold">Tools & Software</h2>
             </div>
 
