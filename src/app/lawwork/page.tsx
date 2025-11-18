@@ -18,8 +18,8 @@ export default function LawWorkHome() {
               <Link href="/lawwork/firm-setup" className="hover:opacity-80 transition">
                 Firm Setup
               </Link>
-              <Link href="/lawwork/assessment" className="hover:opacity-80 transition">
-                Assessment
+              <Link href="/lawwork/self-assessment" className="hover:opacity-80 transition">
+                Self-Assessment
               </Link>
               <Link href="/lawwork/roles" className="hover:opacity-80 transition">
                 Roles
@@ -91,7 +91,7 @@ export default function LawWorkHome() {
           </Link>
 
           {/* Card 2: Needs Assessment */}
-          <Link href="/lawwork/assessment">
+          <Link href="/lawwork/self-assessment">
             <div className="lawwork-card hover:shadow-lg transition cursor-pointer h-full">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">Needs Assessment</h3>
@@ -142,7 +142,7 @@ export default function LawWorkHome() {
               </div>
 
               <button className="w-full mt-4 lawwork-button-primary text-sm">
-                Retake Assessment
+                Start Assessment
               </button>
             </div>
           </Link>
